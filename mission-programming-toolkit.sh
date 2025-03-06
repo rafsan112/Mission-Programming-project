@@ -9,37 +9,32 @@ echo ""
 
 while true; do
     echo "Select an option:"
-    echo "1) Simple Calculator"
-    echo "2) Nmap Scan"
-    echo "3) Multiplication Table"
-    echo "4) Create a File"
-    echo "5) Exit"
+    echo "1) Update System"
+    echo "2) Install Top 10 Bug Bounty Tools"
+    echo "3) Install Top 10 OSINT Tools"
+    echo "4) Exit"
     read -p "Enter your choice: " choice
 
     case $choice in
         1)
-            read -p "Enter first number: " num1
-            read -p "Enter operator (+, -, *, /): " op
-            read -p "Enter second number: " num2
-            result=$(echo "$num1 $op $num2" | bc)
-            echo "Result: $result"
+            echo "Updating system..."
+            sudo apt update && sudo apt upgrade -y
+            echo "System updated successfully. ✅"
             ;;
         2)
-            read -p "Enter target IP or domain: " target
-            nmap -F "$target"
+            echo "Installing Top 10 Bug Bounty Tools..."
+            sudo apt install -y nmap dirb gobuster nikto burp-suite wfuzz sqlmap
+            sudo apt install -y gobuster amass sublist3r whatweb ffuf zaproxy
+            echo "Top 10 Bug Bounty Tools installed. ✅"
             ;;
         3)
-            read -p "Enter a number for the multiplication table: " num
-            for i in {0..10}; do
-                echo "$num x $i = $(($num * $i))"
-            done
+            echo "Installing Top 10 OSINT Tools..."
+            sudo apt install -y theharvester maltego waybackurls osintgram
+            sudo apt install -y spiderfoot sherlock recon-ng googlesearch-python
+            sudo apt install -y dnsrecon mitmproxy
+            echo "Top 10 OSINT Tools installed. ✅"
             ;;
         4)
-            read -p "Enter file name: " filename
-            touch "$filename"
-            echo "File '$filename' created."
-            ;;
-        5)
             echo "Exiting..."
             exit 0
             ;;
