@@ -3,7 +3,7 @@
 echo "###########################################"
 echo "#           Welcome to Mission           #"
 echo "#               Programming              #"
-echo "#      Crafted with love by Rafsan       #"
+echo "#            Crafted by Rafsan           #"
 echo "###########################################"
 echo ""
 
